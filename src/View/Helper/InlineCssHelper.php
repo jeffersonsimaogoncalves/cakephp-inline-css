@@ -10,12 +10,14 @@ class InlineCssHelper extends Helper
     /**
      * After layout logic.
      *
-     * @param \Cake\Event\Event $event Event
-     * @param string $layoutFile Layout filename
+     * @param  \Cake\Event\Event  $event  Event
+     * @param  string  $layoutFile  Layout filename
+     *
+     * @throws \TijsVerkoyen\CssToInlineStyles\Exception
      */
     public function afterLayout(\Cake\Event\Event $event, $layoutFile)
     {
-        $content = $this->_View->Blocks->get('content');
+        $content = $this->_View->fetch('content');
 
         if (!isset($this->InlineCss)) {
             $this->InlineCss = new CssToInlineStyles();
@@ -26,7 +28,7 @@ class InlineCssHelper extends Helper
         $this->InlineCss->setUseInlineStylesBlock(true);
         $content = $this->InlineCss->convert();
 
-        $this->_View->Blocks->set('content', $content);
+        $this->_View->assign('content', $content);
 
         return;
     }

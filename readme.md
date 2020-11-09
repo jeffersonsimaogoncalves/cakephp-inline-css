@@ -6,14 +6,14 @@ This plugin provides a CakePHP helper that uses [CssToInlineStyles](https://gith
 
 ## Requirements
 
-* CakePHP 3.x
+* CakePHP 4.x
 
 ## Installation
 
 This plugin should be installed using Composer:-
 
 ```
-composer require drmonkeyninja/cakephp-inline-css:3.0.*
+composer require drmonkeyninja/cakephp-inline-css:4.0.*
 ```
 
 Then add the following line to your bootstrap.php to load the plugin.
